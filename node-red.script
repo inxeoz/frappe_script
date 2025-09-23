@@ -1,0 +1,13 @@
+[Unit]
+Description=Frappe Script Node-RED Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/node-red /home/ubuntu/frappe_script/mysql_flow.json
+WorkingDirectory=/home/ubuntu/frappe_script
+Restart=always
+User=ubuntu
+Environment=PATH=/home/ubuntu/menv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+[Install]
+WantedBy=multi-user.target
