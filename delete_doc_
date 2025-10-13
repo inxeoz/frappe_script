@@ -1,0 +1,33 @@
+from frappe.model.workflow import apply_workflow
+from frappe import delete_doc
+
+# Step 1: Cancel and delete "Approved" docs first as before
+approved_docs = frappe.db.get_list(
+    "Darshan Appointment",
+    filters={"workflow_state": "Approved"},
+    pluck="name"
+)
+
+for doc_name in approved_docs:
+    doc = frappe.get_doc("Darshan Appointment", doc_name)
+    apply_workflow(doc, "Cancel")
+    frappe.db.commit()
+    print(f"Cancelled: {doc.name}")
+
+    delete_doc("Darshan Appointment", doc_name, force=True)
+    frappe.db.commit()
+    print(f"Deleted: {doc_name}")
+
+# Step 2: Delete docs in Cancelled, Rejected, Pending states
+states_to_delete = ["Cancelled", "Rejected", "Pending"]
+
+docs_to_delete = frappe.db.get_list(
+    "Darshan Appointment",
+    filters={"workflow_state": ["in", states_to_delete]},
+    pluck="name"
+)
+
+for doc_name in docs_to_delete:
+    delete_doc("Darshan Appointment", doc_name, force=True)
+    frappe.db.commit()
+    print(f"Deleted: {doc_name}")
