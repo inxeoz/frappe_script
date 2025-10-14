@@ -1,0 +1,5 @@
+in POSTMAN
+
+cookie has flow from top request to bottom request (login request (which gets cookie) to your request) there should be no request that will interfare with request
+
+if url concluded using env var then cookie would not work (here we need host url)
