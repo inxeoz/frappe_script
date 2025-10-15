@@ -4,3 +4,5 @@ if u are creating new system / backend
 # set Allow Login using Mobile Number = true
 
 # define slot booking info
+
+## after changes in server side code plz migrate (bench migrate)
