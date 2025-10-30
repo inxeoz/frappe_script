@@ -10,3 +10,8 @@ docker images
 docker run -d --name mariadb-container -p 3307:3306 mariadb:10.6
 
 docker run -d --name mariadb-container -p 3307:3306 -e MARIADB_ROOT_PASSWORD=my-secret-pw mariadb:10.6
+
+mysql -h 127.0.0.1 -P 3307 -u root -p --ssl=0
+mysql -h 127.0.0.1 -P 3307 -u root -p --skip-ssl
+
+
