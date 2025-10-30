@@ -6,3 +6,5 @@ docker run -d -p 3000:3000 \
 docker logs frappe-docker-create-site-1 -f
 
 docker images
+
+docker run -d --name mariadb-container -p 3307:3306 mariadb:10.6
