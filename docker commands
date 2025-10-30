@@ -4,3 +4,5 @@ docker run -d -p 3000:3000 \
   svelte-dynamic
 
 docker logs frappe-docker-create-site-1 -f
+
+docker images
