@@ -5,6 +5,14 @@ docker run -d -p 3000:3000 \
   -e NODE_ENV=production \
   svelte-dynamic
 
+
+docker tag approver:test yourusername/approver:test
+
+docker login
+
+docker push yourusername/approver:test
+
+
 docker logs frappe-docker-create-site-1 -f
 
 docker images
