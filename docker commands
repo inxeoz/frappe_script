@@ -1,5 +1,8 @@
 docker build -t svelte-dynamic .
 
+ docker run -e API_URL=http://localhost:8090 -p 3001:3000 approver
+
+
 docker run -d -p 3000:3000 \
   -e API_URL=http://10.120.11.41:8000 \
   -e NODE_ENV=production \
