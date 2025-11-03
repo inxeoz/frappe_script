@@ -9,6 +9,9 @@ docker run -d -p 3000:3000 \
   svelte-dynamic
 
 
+docker build --build-arg=APPS_JSON_BASE64=$APPS_JSON_BASE64 --tag=custom:15 --file=images/layered/Containerfile .
+
+
 docker tag approver:test yourusername/approver:test
 
 docker login
