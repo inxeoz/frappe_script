@@ -1,6 +1,6 @@
 ```docker build -t approver .```
 
-```docker run -e API_URL=http://localhost:8090 -p 3001:3000 approver```
+```docker run -e API_BASE=http://localhost:8090 -p 3001:3000 approver```
 
 ```docker tag approver:test yourusername/approver:test```
 ```docker tag approver yourusername/approver:test```
